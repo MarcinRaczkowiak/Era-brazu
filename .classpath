@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Postaci"/>
-	<classpathentry kind="src" path="Starcie"/>
 	<classpathentry kind="src" path="Boty"/>
 	<classpathentry kind="src" path="Walki"/>
 	<classpathentry kind="src" path="Przedmioty"/>

@@ -69,6 +69,7 @@ public class TworzeniePostaci extends JFrame {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
+		setBounds(450, 170, 410, 410);
 		panel1 = new Panel1(menyStart, this);
 		panel2 = new Panel2(menyStart, this);
 		panel3 = new Panel3(menyStart, this, rodzajGry);

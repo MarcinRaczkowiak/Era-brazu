@@ -17,6 +17,7 @@ public class OknoWyzwania extends JFrame {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
+		setBounds(450, 170, 410, 410);
 
 		panel1 = new Panel1(this, postac);
 		panel2 = new Panel2(this);

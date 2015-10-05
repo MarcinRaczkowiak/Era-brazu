@@ -52,13 +52,18 @@ public class Panel1 extends JPanel {
 		add(przeciwnik);
 
 		Panel1 = this;
+
+		String rodzajGry = "Gracz2";
+		new TworzeniePostaci(pvp, rodzajGry);
+		pvp.setVisible(false);
+		//
 		setVisible(true);
 		setLayout(null);
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		ZmienGracza2.setBounds(10, 120, 200, 20);
 		ZmienGracza1.setBounds(10, 10, 200, 20);
 
-		walczButton.setBounds(150, 290, 100, 20);
+		walczButton.setBounds(150, 290, 150, 20);
 		add(ZmienGracza2);
 		add(ZmienGracza1);
 
@@ -109,7 +114,7 @@ public class Panel1 extends JPanel {
 	class WalczButton extends JButton implements ActionListener {
 
 		WalczButton() {
-			super("Walcz");
+			super("Rozpocznij walkê");
 			addActionListener(this);
 		}
 

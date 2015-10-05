@@ -25,6 +25,7 @@ public class MenyStart extends JFrame implements ActionListener {
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
+		setBounds(450, 170, 410, 410);
 
 		wyjscie = new JButton("Wyjscie");
 		wyjscie.setBounds(151, 300, 100, 20);
