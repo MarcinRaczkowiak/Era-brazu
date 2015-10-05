@@ -9,8 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import PanelWalki.OknoWalki;
-import PanelWalki.PanelAtaku;
+import PanelWalki.SterowanieWalka;
 import Postac.Postac;
 import TworeniePostaci.TworzeniePostaci;
 
@@ -119,16 +118,8 @@ public class Panel1 extends JPanel {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			postac1.StartPostaci();
-			postac2.StartPostaci();
-			PanelAtaku walkaGracz = new PanelAtaku(postac1, postac2, pvp);
-			PanelAtaku walkaGracz2 = new PanelAtaku(postac2, postac1, pvp);
-			OknoWalki oknoWalki = new OknoWalki();
-			oknoWalki.setVisible(true);
-			walkaGracz.setVisible(true);
-			walkaGracz2.setVisible(true);
-			pvp.setVisible(false);
-			// ((Pvp) pvp).panel2();
+
+			new SterowanieWalka(pvp, postac1, postac2);
 
 		}
 	}

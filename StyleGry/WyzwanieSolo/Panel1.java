@@ -9,8 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import PanelWalki.OknoWalki;
-import PanelWalki.PanelAtaku;
+import PanelWalki.SterowanieWalka;
 import Postac.Postac;
 
 public class Panel1 extends JPanel {
@@ -94,13 +93,15 @@ public class Panel1 extends JPanel {
 
 		public void actionPerformed(ActionEvent e) {
 
-			PanelAtaku walkaGracz = new PanelAtaku(postacBochater, bot,
-					oknoWyzwania);
-			OknoWalki oknoWalki = new OknoWalki();
-			oknoWalki.setVisible(true);
-			walkaGracz.setVisible(true);
-			oknoWyzwania.setVisible(false);
-			((OknoWyzwania) oknoWyzwania).panel2();
+			new SterowanieWalka(postacBochater, bot, oknoWyzwania);
+
+			/*
+			 * PanelAtaku walkaGracz = new PanelAtaku(postacBochater, bot,
+			 * oknoWyzwania); OknoWalki oknoWalki = new OknoWalki();
+			 * oknoWalki.setVisible(true); walkaGracz.setVisible(true);
+			 * oknoWyzwania.setVisible(false); ((OknoWyzwania)
+			 * oknoWyzwania).panel2();
+			 */
 
 		}
 	}
