@@ -42,6 +42,7 @@ public class PanelAtaku extends JFrame implements ActionListener {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
+		setBounds(20, 20, 410, 410);
 
 		imie = new JLabel(postacBochater.getImie());
 		iloscHp = new JLabel(String.valueOf(postacBochater.getHp()));
@@ -91,9 +92,11 @@ public class PanelAtaku extends JFrame implements ActionListener {
 		if (postacBochater.getHp() <= 0) {
 			setVisible(false);
 			gra.setVisible(true);
+			OknoWalki.setDefaultLookAndFeelDecorated(false);
 		}
 		if (bot.getHp() <= 0) {
 			setVisible(false);
+			OknoWalki.setDefaultLookAndFeelDecorated(false);
 			gra.setVisible(true);
 		}
 	}

@@ -95,14 +95,6 @@ public class Panel1 extends JPanel {
 
 			new SterowanieWalka(postacBochater, bot, oknoWyzwania);
 
-			/*
-			 * PanelAtaku walkaGracz = new PanelAtaku(postacBochater, bot,
-			 * oknoWyzwania); OknoWalki oknoWalki = new OknoWalki();
-			 * oknoWalki.setVisible(true); walkaGracz.setVisible(true);
-			 * oknoWyzwania.setVisible(false); ((OknoWyzwania)
-			 * oknoWyzwania).panel2();
-			 */
-
 		}
 	}
 }

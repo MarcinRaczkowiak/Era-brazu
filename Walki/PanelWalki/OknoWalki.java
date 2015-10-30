@@ -22,11 +22,14 @@ public class OknoWalki extends JFrame implements ActionListener {
 	public OknoWalki() {
 
 		setTitle("Postêp w walce");
-		setVisible(false);
+		setVisible(true);
 		setSize(350, 690);
 		setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setResizable(false);
+		setBounds(520, 20, 350, 690);
 
 		tekst = new JTextArea("");
 
@@ -73,7 +76,6 @@ public class OknoWalki extends JFrame implements ActionListener {
 		if (z == czysc) {
 			tekst.setText("");
 		}
-
 	}
 
 }
