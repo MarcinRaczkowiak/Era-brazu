@@ -27,7 +27,7 @@ public class Panel1 extends JPanel {
 	private JLabel wsyep = new JLabel("Stworz postac");
 	private JLabel podajImie = new JLabel("Imie postaci:");
 	private JLabel wybierzPlec = new JLabel("Plec:");
-	private JLabel wybierzKlase = new JLabel("Imie postaci:");
+	private JLabel wybierzKlase = new JLabel("Klasa postaci:");
 	private JLabel bonus1 = new JLabel("Trenuj");
 	private JLabel bonus2 = new JLabel("Trenuj");
 	private JLabel bonus3 = new JLabel("Trenuj");

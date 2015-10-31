@@ -25,8 +25,6 @@ public class OknoWalki extends JFrame implements ActionListener {
 		setVisible(true);
 		setSize(350, 690);
 		setLayout(null);
-		// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setBounds(520, 20, 350, 690);

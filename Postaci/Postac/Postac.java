@@ -779,7 +779,7 @@ public class Postac {
 		this.wetkarstwo = wetkarstwo;
 	}
 
-	public synchronized int getWiedzaCodziennao() {
+	public synchronized int getWiedzaCodzienna() {
 		return wiedzaCodzienna;
 	}
 
