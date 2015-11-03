@@ -61,6 +61,13 @@ public class TworzeniePostaci extends JFrame {
 
 	private String rodzajGry;
 
+	/**
+	 * 
+	 * @param menyStart
+	 *            nie pamiêtam
+	 * @param rodzajGry
+	 *            String zakoñczenia procesu np.pvp
+	 */
 	public TworzeniePostaci(JFrame menyStart, String rodzajGry) {
 		this.rodzajGry = rodzajGry;
 		setTitle("Era Brazu");

@@ -3,6 +3,7 @@ package PanelWalki;
 import javax.swing.JFrame;
 
 import Postac.Postac;
+import Pvp.Pvp;
 
 public class SterowanieWalka {
 	JFrame oknoStartowe;
@@ -90,7 +91,7 @@ public class SterowanieWalka {
 
 		Thread t2 = new Thread(new Runnable() {
 			public void run() {
-				while (postac1.getHp() > 0 && postac2.getHp() > 0) {
+				while (postac1.getHp() >= 0 && postac2.getHp() >= 0) {
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
@@ -100,6 +101,14 @@ public class SterowanieWalka {
 				oknoWalki.setVisible(false);
 				walkaGracz.setVisible(false);
 				walkaGracz2.setVisible(false);
+				int zwyciesca;
+				if (postac1.getHp() >= 0) {
+					zwyciesca = 2;
+				} else {
+					zwyciesca = 1;
+				}
+
+				((Pvp) oknoStartowe).WynikWalki(zwyciesca);
 				oknoStartowe.setVisible(true);
 
 			}

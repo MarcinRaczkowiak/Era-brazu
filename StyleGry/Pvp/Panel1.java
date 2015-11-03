@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,10 +22,12 @@ public class Panel1 extends JPanel {
 	private JButton ZmienGracza2;
 	private JButton walczButton;
 
-	private JLabel bochater;
+	private JLabel bochaterLable;
 	private JLabel podajImie = new JLabel("Imie postaci:");
 	private JLabel wybierzPlec = new JLabel("Imie przeciwnika:");
 	private JLabel przeciwnik = new JLabel("Przeciwnik");
+	private JLabel iloscWalkLabel = new JLabel("D³ugoœæ Walki");
+	private JComboBox<String> iloscWalk = new JComboBox<String>();
 
 	private JPanel Panel1;
 
@@ -32,17 +35,22 @@ public class Panel1 extends JPanel {
 	private Postac postac2;
 	private Postac postac1;
 
-	public Panel1(Pvp pvp, Postac postac) {
+	public Panel1(Pvp pvp, Postac postac1, Postac postac2) {
 		this.pvp = pvp;
-		this.postac1 = postac;
+		this.postac1 = postac1;
+		this.postac2 = postac2;
+
+		setVisible(true);
+		setLayout(null);
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
 		ZmienGracza2 = new ZmienGracza2();
 		ZmienGracza1 = new ZmienGracza1();
 		walczButton = new WalczButton();
-		bochater = new JLabel(postac.getImie());
+		bochaterLable = new JLabel(postac1.getImie());
 
-		bochater.setBounds(240, 40, 130, 20);
-		add(bochater);
+		bochaterLable.setBounds(240, 40, 130, 20);
+		add(bochaterLable);
 		podajImie.setBounds(80, 40, 130, 20);
 		add(podajImie);
 		wybierzPlec.setBounds(80, 80, 130, 20);
@@ -52,17 +60,24 @@ public class Panel1 extends JPanel {
 
 		Panel1 = this;
 
-		String rodzajGry = "Gracz2";
-		new TworzeniePostaci(pvp, rodzajGry);
-		pvp.setVisible(false);
-		//
-		setVisible(true);
-		setLayout(null);
-		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		ZmienGracza2.setBounds(10, 120, 200, 20);
 		ZmienGracza1.setBounds(10, 10, 200, 20);
-
+		iloscWalkLabel.setBounds(10, 200, 100, 20);
 		walczButton.setBounds(150, 290, 150, 20);
+		iloscWalk.setBounds(185, 200, 130, 20);
+
+		iloscWalk.addItem("1");
+		iloscWalk.addItem("2");
+		iloscWalk.addItem("5");
+		iloscWalk.addItem("10");
+		iloscWalk.addItem("15");
+		iloscWalk.addItem("25");
+		iloscWalk.addItem("50");
+		iloscWalk.addItem("100");
+		iloscWalk.addItem("175");
+
+		add(iloscWalk);
+		add(iloscWalkLabel);
 		add(ZmienGracza2);
 		add(ZmienGracza1);
 
@@ -77,7 +92,7 @@ public class Panel1 extends JPanel {
 
 	public void bochater1(Postac bochater) {
 		postac1 = bochater;
-		przeciwnik.setText(postac1.getImie());
+		bochaterLable.setText(postac1.getImie());
 	}
 
 	class ZmienGracza2 extends JButton implements ActionListener {
@@ -118,10 +133,14 @@ public class Panel1 extends JPanel {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-
+			String color = iloscWalk.getSelectedItem().toString();
 			new SterowanieWalka(pvp, postac1, postac2);
-
+			if (Integer.parseInt(color) != 1) {
+				((Pvp) pvp).panel2(postac1, postac2);
+			} else {
+				((Pvp) pvp).panel3of1(postac1, postac2);
+			}
 		}
-	}
 
+	}
 }

@@ -101,6 +101,8 @@ public class LewelUp extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+
+		// wybór podstawowego do³adowania dla postaci
 		String color = podajbonus1.getSelectedItem().toString();
 
 		if (color.equals("sila")) {
@@ -127,6 +129,9 @@ public class LewelUp extends JFrame implements ActionListener {
 		}
 
 		System.out.println(((Postac) postac).getSila());
+
+		// dodatkowa umiejêtnoœæ
+		color = podajbonus2.getSelectedItem().toString();
 
 		if (color.equals("silaCiosu")) {
 			postac.setSilaCiosu(postac.getSilaCiosu() + 2);
@@ -183,16 +188,57 @@ public class LewelUp extends JFrame implements ActionListener {
 			((Postac) postac).setWiedzaCodzienna(((Postac) postac)
 					.getWiedzaCodzienna() + 2);
 		} else if (color.equals("maszynyOblerznicze")) {
-			((Postac) postac).setMaszynyOblerznicze(((Postac) postac)
-					.getMaszynyOblerznicze() + 2);
+			postac.setMaszynyOblerznicze(postac.getMaszynyOblerznicze() + 2);
 		} else if (color.equals("budynkoObronne")) {
-			((Postac) postac).setBudynkoObronne(((Postac) postac)
-					.getBudynkoObronne() + 2);
+			postac.setBudynkoObronne(postac.getBudynkoObronne() + 2);
 		} else {
-			((Postac) postac).setBudynkiSocjalne(((Postac) postac)
-					.getBudynkiSocjalne() + 2);
+			postac.setBudynkiSocjalne(postac.getBudynkiSocjalne() + 2);
 		}
 
-	}
+		// lewel za klase
 
+		switch (postac.getKlasa()) {
+		case 1:
+			postac.setSila(postac.getSila() + 2);
+			break;
+		case 2:
+			postac.setZwinnosc(postac.getZwinnosc() + 2);
+			break;
+
+		case 3:
+			postac.setSzybkosc(postac.getSzybkosc() + 2);
+			break;
+
+		case 4:
+			postac.setWiedzaNaukowa(postac.getWiedzaNaukowa() + 2);
+			break;
+
+		case 5:
+			postac.setZnajomoscBroni(postac.getZnajomoscBroni() + 2);
+			break;
+		case 6:
+			postac.setSilyWitalne(postac.getSilyWitalne() + 2);
+			break;
+
+		case 7:
+			postac.setZiemiarz(postac.getZiemiarz() + 2);
+			break;
+
+		case 8:
+			postac.setWiedzaBudowlana(postac.getWiedzaBudowlana() + 2);
+			break;
+
+		}
+
+		// stale dodatki dla postaci
+		postac.setTerzyznaFizyczna(postac.getTerzyznaFizyczna() + 1);
+		postac.setCelnosc(postac.getCelnosc() + 1);
+		postac.setInicjatywa(postac.getInicjatywa() + 1);
+		postac.setTraper(postac.getTraper() + 1);
+		postac.setPlatnerz(postac.getPlatnerz() + 1);
+		postac.setZdrowie(postac.getZdrowie() + 1);
+		postac.setWiedzaCodzienna(postac.getWiedzaCodzienna() + 1);
+		postac.setBudynkiSocjalne(postac.getBudynkiSocjalne() + 1);
+
+	}
 }
