@@ -128,19 +128,21 @@ public class Panel1 extends JPanel {
 	class WalczButton extends JButton implements ActionListener {
 
 		WalczButton() {
+
 			super("Rozpocznij walkê");
 			addActionListener(this);
 		}
 
 		public void actionPerformed(ActionEvent e) {
+
 			String color = iloscWalk.getSelectedItem().toString();
-			new SterowanieWalka(pvp, postac1, postac2);
+			((Pvp) pvp).setIloscWalk(Integer.parseInt(color));
+			new SterowanieWalka(pvp, postac1, postac2, color);
 			if (Integer.parseInt(color) != 1) {
 				((Pvp) pvp).panel2(postac1, postac2);
 			} else {
 				((Pvp) pvp).panel3of1(postac1, postac2);
 			}
 		}
-
 	}
 }

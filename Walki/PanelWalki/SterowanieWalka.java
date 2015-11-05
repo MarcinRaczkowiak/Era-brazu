@@ -8,6 +8,7 @@ import Pvp.Pvp;
 public class SterowanieWalka {
 	JFrame oknoStartowe;
 	Postac postac1, postac2;
+	String color; // tymczasowe rozwiazanie !!!!!!!!!!!!!!!!!!!
 
 	public SterowanieWalka() {
 
@@ -20,11 +21,13 @@ public class SterowanieWalka {
 	 * @param postac1
 	 * @param postac2
 	 */
-	public SterowanieWalka(JFrame oknoStartowe, Postac postac1, Postac postac2) {
+	public SterowanieWalka(JFrame oknoStartowe, Postac postac1, Postac postac2,
+			String color) {
 
 		this.oknoStartowe = oknoStartowe;
 		this.postac1 = postac1;
 		this.postac2 = postac2;
+		this.color = color;
 		Pvp();
 	}
 
@@ -91,7 +94,7 @@ public class SterowanieWalka {
 
 		Thread t2 = new Thread(new Runnable() {
 			public void run() {
-				while (postac1.getHp() >= 0 && postac2.getHp() >= 0) {
+				while (postac1.getHp() > 0 && postac2.getHp() > 0) {
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
@@ -102,13 +105,26 @@ public class SterowanieWalka {
 				walkaGracz.setVisible(false);
 				walkaGracz2.setVisible(false);
 				int zwyciesca;
-				if (postac1.getHp() >= 0) {
+
+				if (postac2.getHp() > 0) {
 					zwyciesca = 2;
+
 				} else {
 					zwyciesca = 1;
+
+				}
+				if (Integer.parseInt(color) != 1) {
+					if (postac2.getHp() > 0) {
+
+						((Pvp) oknoStartowe).WygraneGracz2();
+					} else {
+
+						((Pvp) oknoStartowe).WygraneGracz1();
+					}
+				} else {
+					((Pvp) oknoStartowe).WynikWalki(zwyciesca);
 				}
 
-				((Pvp) oknoStartowe).WynikWalki(zwyciesca);
 				oknoStartowe.setVisible(true);
 
 			}

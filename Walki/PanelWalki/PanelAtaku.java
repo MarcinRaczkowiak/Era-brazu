@@ -89,15 +89,15 @@ public class PanelAtaku extends JFrame implements ActionListener {
 			walkaBot.Atak(rodzajAtaku, celAtaku);
 		}
 
-		if (postacBochater.getHp() <= 0) {
-			setVisible(false);
-			gra.setVisible(true);
-			OknoWalki.setDefaultLookAndFeelDecorated(false);
-		}
-		if (bot.getHp() <= 0) {
-			setVisible(false);
-			OknoWalki.setDefaultLookAndFeelDecorated(false);
-			gra.setVisible(true);
-		}
+		// if (postacBochater.getHp() <= 0) {
+		// setVisible(false);
+		// gra.setVisible(true);
+		// OknoWalki.setDefaultLookAndFeelDecorated(false);
+		// }
+		// if (bot.getHp() <= 0) {
+		// setVisible(false);
+		// OknoWalki.setDefaultLookAndFeelDecorated(false);
+		// gra.setVisible(true);
+		// }
 	}
 }

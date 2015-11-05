@@ -13,6 +13,7 @@ public class Pvp extends JFrame {
 	private JPanel panel1, panel2, panel3;
 	private Postac postac1, postac2;
 	public static int zwyciesca = 0;
+	private int wygraneGracz1 = 0, wygraneGracz2 = 0, iloscWalk;
 
 	public Pvp(Postac postac1) {
 		this.postac1 = postac1;
@@ -89,6 +90,55 @@ public class Pvp extends JFrame {
 
 	public static int KotWygrywa() {
 		return zwyciesca;
+	}
+
+	public void WygraneGracz1() {
+		wygraneGracz1++;
+
+		if (iloscWalk > wygraneGracz1) {
+			((Panel2) panel2).setPostac1Wygrane();
+
+			String tekst = "Wygra³ gracz1: " + postac1.getImie();
+			String tekst2 = "Dlatego s³abszy gracz: " + postac2.getImie()
+					+ " dostaje lewel :)";
+			((Panel2) panel2).setktoWygral(tekst, tekst2);
+		} else {
+			zwyciesca = 1;
+			panel3(postac1, postac1);
+		}
+	}
+
+	public void WygraneGracz2() {
+		wygraneGracz2++;
+
+		if (iloscWalk > wygraneGracz2) {
+			System.out.println(iloscWalk + " " + wygraneGracz2);
+			((Panel2) panel2).setPostac2Wygrane();
+
+			String tekst = "Wygra³ gracz2: " + postac2.getImie();
+			String tekst2 = "Dlatego s³abszy gracz: " + postac1.getImie()
+					+ " dostaje lewel :)";
+			((Panel2) panel2).setktoWygral(tekst, tekst2);
+		} else {
+			zwyciesca = 2;
+			panel3(postac1, postac1);
+		}
+	}
+
+	public int getWygraneGracz1() {
+		return wygraneGracz1;
+	}
+
+	public int getWygraneGracz2() {
+		return wygraneGracz2;
+	}
+
+	public void setIloscWalk(int iloscWalk) {
+		this.iloscWalk = iloscWalk;
+	}
+
+	public int getIloscWalk() {
+		return iloscWalk;
 	}
 
 }

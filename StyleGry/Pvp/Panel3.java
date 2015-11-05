@@ -16,6 +16,7 @@ public class Panel3 extends JPanel {
 	private JFrame pvp;
 	private Postac postac2;
 	private Postac postac1;
+
 	private JLabel wygrany;
 
 	public Panel3(Pvp pvp, Postac postac1, Postac postac2) {
@@ -23,7 +24,6 @@ public class Panel3 extends JPanel {
 		this.postac1 = postac1;
 		this.postac2 = postac2;
 
-		setVisible(true);
 		setLayout(null);
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 

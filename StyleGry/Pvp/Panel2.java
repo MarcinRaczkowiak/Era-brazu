@@ -25,12 +25,11 @@ public class Panel2 extends JPanel {
 	private JLabel postac2Imie;
 	private JLabel postac1Wygrane;
 	private JLabel postac2Wygrane;
-	private JLabel podajImie2;
-	private JLabel wybierzPlec2;
+	private JLabel ktoWygral;
+	private JLabel ktoWygral2;
 
+	private JButton wybierzPlec2;
 	private JButton dalej;
-
-	private int wygraneGracz1 = 0, wygraneGracz2 = 0;
 
 	public Panel2(Pvp pvp, Postac postac1, Postac postac2) {
 		this.pvp = pvp;
@@ -42,8 +41,12 @@ public class Panel2 extends JPanel {
 
 		postac1Imie = new JLabel(postac1.getImie());
 		postac2Imie = new JLabel(postac2.getImie());
-		postac1Wygrane = new JLabel("wygrane " + String.valueOf(wygraneGracz1));
-		postac2Wygrane = new JLabel("wygrane " + String.valueOf(wygraneGracz2));
+		postac1Wygrane = new JLabel("wygrane "
+				+ String.valueOf(pvp.getWygraneGracz1()));
+		postac2Wygrane = new JLabel("wygrane "
+				+ String.valueOf(pvp.getWygraneGracz2()));
+		ktoWygral = new JLabel("AWARJA PROGRAMU");
+		ktoWygral2 = new JLabel("AWARJA PROGRAMU");
 
 		dalej = new Dalej();
 		dalej.setBounds(150, 350, 100, 20);
@@ -60,6 +63,26 @@ public class Panel2 extends JPanel {
 
 		postac2Imie.setBounds(20, 100, 130, 20);
 		add(postac2Imie);
+
+		ktoWygral.setBounds(50, 200, 350, 20);
+		add(ktoWygral);
+		ktoWygral2.setBounds(100, 220, 300, 20);
+		add(ktoWygral2);
+	}
+
+	public void setPostac1Wygrane() {
+		postac1Wygrane.setText("wygrane "
+				+ String.valueOf(((Pvp) pvp).getWygraneGracz1()));
+	}
+
+	public void setPostac2Wygrane() {
+		postac2Wygrane.setText("wygrane "
+				+ String.valueOf(((Pvp) pvp).getWygraneGracz2()));
+	}
+
+	public void setktoWygral(String tekst, String tekst2) {
+		ktoWygral.setText(tekst);
+		ktoWygral2.setText(tekst2);
 	}
 
 	class Dalej extends JButton implements ActionListener {
@@ -71,7 +94,9 @@ public class Panel2 extends JPanel {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			new SterowanieWalka(pvp, postac1, postac2);
+			String a = "2"; // tymczasowe rozwi¹zanie s¹ wa¿niejszerzeczy do
+							// zrobienia
+			new SterowanieWalka(pvp, postac1, postac2, a);
 
 		}
 	}
