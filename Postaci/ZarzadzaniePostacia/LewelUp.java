@@ -12,14 +12,18 @@ import Postac.Postac;
 
 public class LewelUp extends JFrame implements ActionListener {
 
+	private JFrame plansza;
 	private JLabel imie;
 	private Postac postac;
 	private JButton zatwierdz;
 	private JComboBox<String> podajbonus1 = new JComboBox<String>();
 	private JComboBox<String> podajbonus2 = new JComboBox<String>();
 
-	public LewelUp(Postac postac) {
+	public LewelUp(JFrame plansza, Postac postac) {
 		this.postac = postac;
+		this.plansza = plansza;
+
+		plansza.setVisible(false);
 
 		setTitle("LewelUP");
 		setSize(410, 410);
@@ -84,19 +88,6 @@ public class LewelUp extends JFrame implements ActionListener {
 		zatwierdz.setBounds(1, 1, 100, 20);
 		add(zatwierdz);
 		zatwierdz.addActionListener(this);
-
-	}
-
-	public static void main(String[] args) {
-		int bottt = 1;
-		String Zbroja = "";
-		Postac postac = new Postac("Tesster", true, true, bottt, bottt, bottt,
-				bottt, bottt, bottt, bottt, bottt, bottt, bottt, bottt, bottt,
-				bottt, bottt, bottt, bottt, bottt, bottt, bottt, bottt, bottt,
-				bottt, bottt, bottt, bottt, bottt, bottt, bottt, bottt, bottt,
-				bottt, bottt, bottt, bottt, bottt, bottt, Zbroja, Zbroja,
-				Zbroja, Zbroja, Zbroja, Zbroja, Zbroja);
-		LewelUp to = new LewelUp(postac);
 
 	}
 
@@ -240,5 +231,9 @@ public class LewelUp extends JFrame implements ActionListener {
 		postac.setWiedzaCodzienna(postac.getWiedzaCodzienna() + 1);
 		postac.setBudynkiSocjalne(postac.getBudynkiSocjalne() + 1);
 
+		plansza.setVisible(true);
+		setVisible(false);
+
 	}
+
 }

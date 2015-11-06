@@ -11,8 +11,9 @@ import javax.swing.JPanel;
 
 import PanelWalki.SterowanieWalka;
 import Postac.Postac;
+import ZarzadzaniePostacia.LewelUp;
 
-public class Panel2 extends JPanel {
+public class Panel2 extends JPanel implements ActionListener {
 
 	public static final int HEIGHT = 410;
 	public static final int WIDTH = 410;
@@ -50,7 +51,16 @@ public class Panel2 extends JPanel {
 
 		dalej = new Dalej();
 		dalej.setBounds(150, 350, 100, 20);
+		dalej.setEnabled(false);
+		dalej.setActionCommand("bb");
+		dalej.addActionListener(this);
 		add(dalej);
+
+		wybierzPlec2 = new WybierzPlec2();
+		wybierzPlec2.setBounds(150, 320, 100, 20);
+		wybierzPlec2.setActionCommand("dalej");
+		wybierzPlec2.addActionListener(this);
+		add(wybierzPlec2);
 
 		postac1Wygrane.setBounds(150, 20, 130, 20);
 		add(postac1Wygrane);
@@ -67,6 +77,7 @@ public class Panel2 extends JPanel {
 		ktoWygral.setBounds(50, 200, 350, 20);
 		add(ktoWygral);
 		ktoWygral2.setBounds(100, 220, 300, 20);
+
 		add(ktoWygral2);
 	}
 
@@ -94,11 +105,51 @@ public class Panel2 extends JPanel {
 		}
 
 		public void actionPerformed(ActionEvent e) {
+
+			dalej.setEnabled(false);
+
+			wybierzPlec2.setEnabled(true);
+
 			String a = "2"; // tymczasowe rozwi¹zanie s¹ wa¿niejszerzeczy do
 							// zrobienia
 			new SterowanieWalka(pvp, postac1, postac2, a);
 
 		}
+	}
+
+	class WybierzPlec2 extends JButton implements ActionListener {
+
+		WybierzPlec2() {
+			super("LewelUP");
+
+			addActionListener(this);
+		}
+
+		public void actionPerformed(ActionEvent e) {
+
+			dalej.setEnabled(true);
+
+			wybierzPlec2.setEnabled(false);
+
+			if (((Pvp) pvp).KotWygrywa() == 1) {
+				new LewelUp(pvp, postac2);
+			} else {
+				new LewelUp(pvp, postac1);
+			}
+		}
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		// if ("dalej".equals(e.getActionCommand())) {
+		// dalej.setEnabled(true);
+		//
+		// wybierzPlec2.setEnabled(false);
+		// } else {
+		// dalej.setEnabled(true);
+		//
+		// wybierzPlec2.setEnabled(false);
+		// }
+
 	}
 
 }
