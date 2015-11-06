@@ -26,11 +26,14 @@ public class PanelAtaku extends JFrame implements ActionListener {
 	private WalkaWParze walka;
 	private WalkaWParze walkaBot;
 	private JFrame gra;
+	private SterowanieWalka sterowanieWalka;
 
-	public PanelAtaku(Postac postacBochater, Postac bot, JFrame gra) {
+	public PanelAtaku(Postac postacBochater, Postac bot, JFrame gra,
+			SterowanieWalka sterowanieWalka) {
 		this.postacBochater = postacBochater;
 		this.bot = bot;
 		this.gra = gra;
+		this.sterowanieWalka = sterowanieWalka;
 		walka = new WalkaWParze(postacBochater, bot);
 		if (bot.getBot()) {
 			walkaBot = new WalkaWParze(bot, postacBochater);
@@ -79,8 +82,13 @@ public class PanelAtaku extends JFrame implements ActionListener {
 		add(hp);
 	}
 
+	public void Guzik(boolean aktywnoscGuzika) {
+		atak.setEnabled(aktywnoscGuzika);
+	}
+
 	public void actionPerformed(ActionEvent arg0) {
 
+		sterowanieWalka.Atakuj¹cy1();
 		String rodzajAtaku = wybierzRodzajAtaku.getSelectedItem().toString();
 		String celAtaku = wybierzCelAtaku.getSelectedItem().toString();
 		walka.Atak(rodzajAtaku, celAtaku);

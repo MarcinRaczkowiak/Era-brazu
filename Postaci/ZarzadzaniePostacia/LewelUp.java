@@ -45,8 +45,6 @@ public class LewelUp extends JFrame implements ActionListener {
 		podajbonus1.addItem("wiedza codzienna");
 		podajbonus1.addItem("wiedza budowlana");
 
-		add(podajbonus1);
-
 		podajbonus2.addItem("silaCiosu");
 		podajbonus2.addItem("terzyznaFizyczna");
 		podajbonus2.addItem("gurnik");
@@ -82,12 +80,14 @@ public class LewelUp extends JFrame implements ActionListener {
 		podajbonus1.setBounds(165, 70, 130, 20);
 		podajbonus2.setBounds(165, 110, 130, 20);
 		imie.setBounds(20, 20, 100, 20);
-		add(podajbonus2);
 
 		zatwierdz = new JButton("Zatwierdz");
 		zatwierdz.setBounds(1, 1, 100, 20);
-		add(zatwierdz);
+
 		zatwierdz.addActionListener(this);
+		add(podajbonus1);
+		add(podajbonus2);
+		add(zatwierdz);
 
 	}
 
@@ -190,33 +190,33 @@ public class LewelUp extends JFrame implements ActionListener {
 
 		switch (postac.getKlasa()) {
 		case 1:
-			postac.setSila(postac.getSila() + 2);
+			postac.setSila(postac.getSila() + 3);
 			break;
 		case 2:
-			postac.setZwinnosc(postac.getZwinnosc() + 2);
+			postac.setZwinnosc(postac.getZwinnosc() + 3);
 			break;
 
 		case 3:
-			postac.setSzybkosc(postac.getSzybkosc() + 2);
+			postac.setSzybkosc(postac.getSzybkosc() + 3);
 			break;
 
 		case 4:
-			postac.setWiedzaNaukowa(postac.getWiedzaNaukowa() + 2);
+			postac.setWiedzaNaukowa(postac.getWiedzaNaukowa() + 3);
 			break;
 
 		case 5:
-			postac.setZnajomoscBroni(postac.getZnajomoscBroni() + 2);
+			postac.setZnajomoscBroni(postac.getZnajomoscBroni() + 3);
 			break;
 		case 6:
-			postac.setSilyWitalne(postac.getSilyWitalne() + 2);
+			postac.setSilyWitalne(postac.getSilyWitalne() + 3);
 			break;
 
 		case 7:
-			postac.setZiemiarz(postac.getZiemiarz() + 2);
+			postac.setZiemiarz(postac.getZiemiarz() + 3);
 			break;
 
 		case 8:
-			postac.setWiedzaBudowlana(postac.getWiedzaBudowlana() + 2);
+			postac.setWiedzaBudowlana(postac.getWiedzaBudowlana() + 3);
 			break;
 
 		}

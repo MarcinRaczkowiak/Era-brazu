@@ -1,5 +1,7 @@
 package PanelWalki;
 
+import java.util.Random;
+
 import javax.swing.JFrame;
 
 import Postac.Postac;
@@ -9,6 +11,8 @@ public class SterowanieWalka {
 	JFrame oknoStartowe;
 	Postac postac1, postac2;
 	String color; // tymczasowe rozwiazanie !!!!!!!!!!!!!!!!!!!
+	PanelAtaku walkaGracz;
+	PanelAtaku walkaGracz2;
 
 	public SterowanieWalka() {
 
@@ -49,7 +53,7 @@ public class SterowanieWalka {
 	public void WalkaZBotem() {
 
 		final PanelAtaku walkaGracz = new PanelAtaku(postac1, postac2,
-				oknoStartowe);
+				oknoStartowe, this);
 		final OknoWalki oknoWalki = new OknoWalki();
 
 		walkaGracz.setVisible(true);
@@ -83,12 +87,16 @@ public class SterowanieWalka {
 		postac1.StartPostaci();
 		postac2.StartPostaci();
 		final PanelAtaku walkaGracz = new PanelAtaku(postac1, postac2,
-				oknoStartowe);
+				oknoStartowe, this);
 		final PanelAtaku walkaGracz2 = new PanelAtaku(postac2, postac1,
-				oknoStartowe);
+				oknoStartowe, this);
 		final OknoWalki oknoWalki = new OknoWalki();
+
+		StartWalki(walkaGracz, walkaGracz2);
+
 		oknoWalki.setVisible(true);
 		walkaGracz.setVisible(true);
+		walkaGracz2.setBounds(800, 20, 410, 410);
 		walkaGracz2.setVisible(true);
 		oknoStartowe.setVisible(false);
 
@@ -133,4 +141,39 @@ public class SterowanieWalka {
 		t2.start();
 
 	}
+
+	public void StartWalki(PanelAtaku walkaGracz, PanelAtaku walkaGracz2) {
+		this.walkaGracz = walkaGracz;
+		this.walkaGracz2 = walkaGracz2;
+		if (postac1.getInicjatywa() + postac1.getSzybkosc() < postac2
+				.getInicjatywa() + postac2.getSzybkosc()) {
+			walkaGracz.Guzik(false);
+		} else {
+			walkaGracz2.Guzik(false);
+		}
+	}
+
+	public void Atakuj¹cy1() {
+
+		Random SAtak = new Random();
+
+		int pierwszy = SAtak.nextInt(postac1.getInicjatywa()
+				+ postac1.getSzybkosc() + 10) + 1;
+		int drugi = SAtak.nextInt(postac2.getInicjatywa()
+				+ postac2.getSzybkosc() + 11) + 1;
+
+		if (pierwszy < drugi) {
+			walkaGracz.Guzik(false);
+			walkaGracz2.Guzik(true);
+		} else {
+			walkaGracz2.Guzik(false);
+			walkaGracz.Guzik(true);
+		}
+
+	}
+
+	public void Atakuj¹cy2() {
+
+	}
+
 }

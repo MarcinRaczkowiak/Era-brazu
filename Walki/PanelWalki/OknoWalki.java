@@ -27,7 +27,7 @@ public class OknoWalki extends JFrame implements ActionListener {
 		setLayout(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setResizable(false);
-		setBounds(520, 20, 350, 690);
+		setBounds(450, 20, 350, 690);
 
 		tekst = new JTextArea("");
 
