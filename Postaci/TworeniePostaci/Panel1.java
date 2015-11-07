@@ -292,6 +292,136 @@ public class Panel1 extends JPanel {
 								.getWiedzaBudowlana() + 5);
 			}
 
+			// dodatek sta³y dla postaci
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setSilaCiosu(((TworzeniePostaci) tworzeniePostaci)
+							.getSilaCiosu() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setTerzyznaFizyczna(((TworzeniePostaci) tworzeniePostaci)
+							.getTerzyznaFizyczna() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setGurnik(((TworzeniePostaci) tworzeniePostaci)
+							.getGurnik() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setCelnosc(((TworzeniePostaci) tworzeniePostaci)
+							.getCelnosc() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setUnik(((TworzeniePostaci) tworzeniePostaci).getUnik() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setSkradanie(((TworzeniePostaci) tworzeniePostaci)
+							.getSkradanie() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setSzybkoscCiosu(((TworzeniePostaci) tworzeniePostaci)
+							.getSzybkoscCiosu() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setSzybkoscObrony(((TworzeniePostaci) tworzeniePostaci)
+							.getSzybkoscObrony() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setInicjatywa(((TworzeniePostaci) tworzeniePostaci)
+							.getInicjatywa() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setAnatomia(((TworzeniePostaci) tworzeniePostaci)
+							.getAnatomia() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setTraper(((TworzeniePostaci) tworzeniePostaci)
+							.getTraper() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setZielarz(((TworzeniePostaci) tworzeniePostaci)
+							.getZielarz() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setRozbrojenie(((TworzeniePostaci) tworzeniePostaci)
+							.getRozbrojenie() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setZbrojmistsz(((TworzeniePostaci) tworzeniePostaci)
+							.getZbrojmistsz() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setPlatnerz(((TworzeniePostaci) tworzeniePostaci)
+							.getPlatnerz() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setZdrowie(((TworzeniePostaci) tworzeniePostaci)
+							.getZdrowie() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setKondycja(((TworzeniePostaci) tworzeniePostaci)
+							.getKondycja() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setPojemnoscZoladka(((TworzeniePostaci) tworzeniePostaci)
+							.getPojemnoscZoladka() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setGotowanie(((TworzeniePostaci) tworzeniePostaci)
+							.getGotowanie() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setWetkarstwo(((TworzeniePostaci) tworzeniePostaci)
+							.getWetkarstwo() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setWiedzaCodzienna(((TworzeniePostaci) tworzeniePostaci)
+							.getWiedzaCodzienna() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setMaszynyOblerznicze(((TworzeniePostaci) tworzeniePostaci)
+							.getMaszynyOblerznicze() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setBudynkoObronne(((TworzeniePostaci) tworzeniePostaci)
+							.getBudynkoObronne() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setBudynkiSocjalne(((TworzeniePostaci) tworzeniePostaci)
+							.getBudynkiSocjalne() + 2);
+
+			// podstawowe
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setSila(((TworzeniePostaci) tworzeniePostaci).getSila() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setZwinnosc(((TworzeniePostaci) tworzeniePostaci)
+							.getZwinnosc() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setSzybkosc(((TworzeniePostaci) tworzeniePostaci)
+							.getSzybkosc() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setWiedzaNaukowa(((TworzeniePostaci) tworzeniePostaci)
+							.getWiedzaNaukowa() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setZnajomoscBroni(((TworzeniePostaci) tworzeniePostaci)
+							.getZnajomoscBroni() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setSilyWitalne(((TworzeniePostaci) tworzeniePostaci)
+							.getSilyWitalne() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setZiemiarz(((TworzeniePostaci) tworzeniePostaci)
+							.getZiemiarz() + 2);
+
+			((TworzeniePostaci) tworzeniePostaci)
+					.setWiedzaBudowlana(((TworzeniePostaci) tworzeniePostaci)
+							.getWiedzaBudowlana() + 2);
+
 			((TworzeniePostaci) tworzeniePostaci).panel2();
 		}
 	}

@@ -112,8 +112,7 @@ public class LewelUp extends JFrame implements ActionListener {
 			((Postac) postac)
 					.setSilyWitalne(((Postac) postac).getSilyWitalne() + 2);
 		} else if (color.equals("wiedza codzienna")) {
-			((Postac) postac).setWiedzaCodzienna(((Postac) postac)
-					.getWiedzaCodzienna() + 2);
+			((Postac) postac).setZiemiarz(((Postac) postac).getZiemiarz() + 2);
 		} else {
 			((Postac) postac).setWiedzaBudowlana(((Postac) postac)
 					.getWiedzaBudowlana() + 2);

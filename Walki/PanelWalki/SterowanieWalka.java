@@ -157,19 +157,25 @@ public class SterowanieWalka {
 
 		Random SAtak = new Random();
 
-		int pierwszy = SAtak.nextInt(postac1.getInicjatywa()
-				+ postac1.getSzybkosc() + 10) + 1;
-		int drugi = SAtak.nextInt(postac2.getInicjatywa()
-				+ postac2.getSzybkosc() + 11) + 1;
+		int remis = 1;
+		do {
+			int pierwszy = SAtak.nextInt(postac1.getInicjatywa()
+					+ postac1.getSzybkosc() + 10) + 1;
+			int drugi = SAtak.nextInt(postac2.getInicjatywa()
+					+ postac2.getSzybkosc() + 10) + 1;
 
-		if (pierwszy < drugi) {
-			walkaGracz.Guzik(false);
-			walkaGracz2.Guzik(true);
-		} else {
-			walkaGracz2.Guzik(false);
-			walkaGracz.Guzik(true);
-		}
-
+			if (pierwszy < drugi) {
+				walkaGracz.Guzik(false);
+				walkaGracz2.Guzik(true);
+				remis = 0;
+			} else if (pierwszy > drugi) {
+				walkaGracz2.Guzik(false);
+				walkaGracz.Guzik(true);
+				remis = 0;
+			} else {
+				remis = 1;
+			}
+		} while (remis == 1);
 	}
 
 	public void Atakuj¹cy2() {
