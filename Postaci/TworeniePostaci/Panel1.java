@@ -67,7 +67,7 @@ public class Panel1 extends JPanel {
 		bonus4.setBounds(80, 280, 130, 20);
 		add(bonus4);
 
-		podajPlec.addItem("Merzczyzna");
+		podajPlec.addItem("Me¿czyzna");
 		podajPlec.addItem("Kobieta");
 		podajPlec.addItem("Inna");
 
@@ -196,7 +196,7 @@ public class Panel1 extends JPanel {
 			((TworzeniePostaci) tworzeniePostaci).nadajImie(wpisaneImie
 					.getText());
 			String color = podajPlec.getSelectedItem().toString();
-			if (color.equals("Merzczyzna")) {
+			if (color.equals("Me¿czyzna")) {
 				((TworzeniePostaci) tworzeniePostaci).wybierzPlec(true);
 			} else {
 				((TworzeniePostaci) tworzeniePostaci).wybierzPlec(false);

@@ -69,25 +69,26 @@ public class Panel2 extends JPanel {
 		zbroja.addItem("Lniana");
 		zbroja.addItem("Bawelniana");
 		zbroja.addItem("Welniana");
-		zbroja.addItem("Skurzane");
+		zbroja.addItem("Skórzane");
 
 		obuwie.addItem("Boso");
 		obuwie.addItem("Onuce");
 		obuwie.addItem("Blaszane");
-		obuwie.addItem("Skurzane");
+		obuwie.addItem("Skórzane");
 
 		spodnie.addItem("Lniana");
 		spodnie.addItem("Bawelniane");
 		spodnie.addItem("Welniane");
-		spodnie.addItem("Skurzane");
+		spodnie.addItem("Skórzane");
 
 		rekawice.addItem("Lniana");
 		rekawice.addItem("Bawelniane");
 		rekawice.addItem("Welniane");
-		rekawice.addItem("Skurzane");
+		rekawice.addItem("Skórzane");
 
 		czapka.addItem("Garnek");
 		czapka.addItem("Welniana");
+		czapka.addItem("Skórzana");
 		czapka.addItem("Bez");
 
 		zapas.addItem("Miód");
