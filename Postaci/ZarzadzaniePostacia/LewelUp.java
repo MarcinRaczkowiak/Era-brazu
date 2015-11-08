@@ -18,6 +18,7 @@ public class LewelUp extends JFrame implements ActionListener {
 	private JButton zatwierdz;
 	private JComboBox<String> podajbonus1 = new JComboBox<String>();
 	private JComboBox<String> podajbonus2 = new JComboBox<String>();
+	private JComboBox<String> podajbonus3 = new JComboBox<String>();
 
 	public LewelUp(JFrame plansza, Postac postac) {
 		this.postac = postac;
@@ -71,14 +72,47 @@ public class LewelUp extends JFrame implements ActionListener {
 
 		podajbonus2.addItem("gotowanie");
 		podajbonus2.addItem("wetkarstwo");
-		podajbonus2.addItem("wiedzaCodzienna");
+		podajbonus2.addItem("rolnictwo");
 
 		podajbonus2.addItem("maszynyOblerznicze");
 		podajbonus2.addItem("budynkoObronne");
 		podajbonus2.addItem("budynkiSocjalne");
 
+		podajbonus3.addItem("silaCiosu");
+		podajbonus3.addItem("terzyznaFizyczna");
+		podajbonus3.addItem("gurnik");
+
+		podajbonus3.addItem("celnosc");
+		podajbonus3.addItem("unik");
+		podajbonus3.addItem("skradanie");
+
+		podajbonus3.addItem("szybkoscCiosu");
+		podajbonus3.addItem("szybkoscObrony");
+		podajbonus3.addItem("inicjatywa");
+
+		podajbonus3.addItem("anatomia");
+		podajbonus3.addItem("traper");
+		podajbonus3.addItem("zielarz");
+
+		podajbonus3.addItem("rozbrojenie");
+		podajbonus3.addItem("zbrojmistsz");
+		podajbonus3.addItem("platnerz");
+
+		podajbonus3.addItem("zdrowie");
+		podajbonus3.addItem("kondycja");
+		podajbonus3.addItem("pojemnoscZoladka");
+
+		podajbonus3.addItem("gotowanie");
+		podajbonus3.addItem("wetkarstwo");
+		podajbonus3.addItem("rolnictwo");
+
+		podajbonus3.addItem("maszynyOblerznicze");
+		podajbonus3.addItem("budynkoObronne");
+		podajbonus3.addItem("budynkiSocjalne");
+
 		podajbonus1.setBounds(165, 70, 130, 20);
 		podajbonus2.setBounds(165, 110, 130, 20);
+		podajbonus3.setBounds(165, 150, 130, 20);
 		imie.setBounds(20, 20, 100, 20);
 
 		zatwierdz = new JButton("Zatwierdz");
@@ -87,6 +121,7 @@ public class LewelUp extends JFrame implements ActionListener {
 		zatwierdz.addActionListener(this);
 		add(podajbonus1);
 		add(podajbonus2);
+		add(podajbonus3);
 		add(zatwierdz);
 
 	}
@@ -112,7 +147,8 @@ public class LewelUp extends JFrame implements ActionListener {
 			((Postac) postac)
 					.setSilyWitalne(((Postac) postac).getSilyWitalne() + 2);
 		} else if (color.equals("wiedza codzienna")) {
-			((Postac) postac).setZiemiarz(((Postac) postac).getZiemiarz() + 2);
+			((Postac) postac).setWiedzaCodzienna(((Postac) postac)
+					.getWiedzaCodzienna() + 2);
 		} else {
 			((Postac) postac).setWiedzaBudowlana(((Postac) postac)
 					.getWiedzaBudowlana() + 2);
@@ -123,6 +159,62 @@ public class LewelUp extends JFrame implements ActionListener {
 		// dodatkowa umiejêtnoœæ
 		color = podajbonus2.getSelectedItem().toString();
 
+		Wybur(color);
+		color = podajbonus3.getSelectedItem().toString();
+
+		Wybur(color);
+
+		// lewel za klase
+
+		switch (postac.getKlasa()) {
+		case 1:
+			postac.setSila(postac.getSila() + 3);
+			break;
+		case 2:
+			postac.setZwinnosc(postac.getZwinnosc() + 3);
+			break;
+
+		case 3:
+			postac.setSzybkosc(postac.getSzybkosc() + 3);
+			break;
+
+		case 4:
+			postac.setWiedzaNaukowa(postac.getWiedzaNaukowa() + 3);
+			break;
+
+		case 5:
+			postac.setZnajomoscBroni(postac.getZnajomoscBroni() + 3);
+			break;
+		case 6:
+			postac.setSilyWitalne(postac.getSilyWitalne() + 3);
+			break;
+
+		case 7:
+			postac.setWiedzaCodzienna(postac.getWiedzaCodzienna() + 3);
+			break;
+
+		case 8:
+			postac.setWiedzaBudowlana(postac.getWiedzaBudowlana() + 3);
+			break;
+
+		}
+
+		// stale dodatki dla postaci
+		postac.setTerzyznaFizyczna(postac.getTerzyznaFizyczna() + 1);
+		postac.setCelnosc(postac.getCelnosc() + 1);
+		postac.setInicjatywa(postac.getInicjatywa() + 1);
+		postac.setTraper(postac.getTraper() + 1);
+		postac.setPlatnerz(postac.getPlatnerz() + 1);
+		postac.setZdrowie(postac.getZdrowie() + 1);
+		postac.setRolnictwo(postac.getRolnictwo() + 1);
+		postac.setBudynkiSocjalne(postac.getBudynkiSocjalne() + 1);
+
+		plansza.setVisible(true);
+		setVisible(false);
+
+	}
+
+	private void Wybur(String color) {
 		if (color.equals("silaCiosu")) {
 			postac.setSilaCiosu(postac.getSilaCiosu() + 2);
 		} else if (color.equals("terzyznaFizyczna")) {
@@ -174,9 +266,9 @@ public class LewelUp extends JFrame implements ActionListener {
 		} else if (color.equals("wetkarstwo")) {
 			((Postac) postac)
 					.setWetkarstwo(((Postac) postac).getWetkarstwo() + 2);
-		} else if (color.equals("wiedzaCodzienna")) {
-			((Postac) postac).setWiedzaCodzienna(((Postac) postac)
-					.getWiedzaCodzienna() + 2);
+		} else if (color.equals("rolnictwo")) {
+			((Postac) postac)
+					.setRolnictwo(((Postac) postac).getRolnictwo() + 2);
 		} else if (color.equals("maszynyOblerznicze")) {
 			postac.setMaszynyOblerznicze(postac.getMaszynyOblerznicze() + 2);
 		} else if (color.equals("budynkoObronne")) {
@@ -184,55 +276,6 @@ public class LewelUp extends JFrame implements ActionListener {
 		} else {
 			postac.setBudynkiSocjalne(postac.getBudynkiSocjalne() + 2);
 		}
-
-		// lewel za klase
-
-		switch (postac.getKlasa()) {
-		case 1:
-			postac.setSila(postac.getSila() + 3);
-			break;
-		case 2:
-			postac.setZwinnosc(postac.getZwinnosc() + 3);
-			break;
-
-		case 3:
-			postac.setSzybkosc(postac.getSzybkosc() + 3);
-			break;
-
-		case 4:
-			postac.setWiedzaNaukowa(postac.getWiedzaNaukowa() + 3);
-			break;
-
-		case 5:
-			postac.setZnajomoscBroni(postac.getZnajomoscBroni() + 3);
-			break;
-		case 6:
-			postac.setSilyWitalne(postac.getSilyWitalne() + 3);
-			break;
-
-		case 7:
-			postac.setZiemiarz(postac.getZiemiarz() + 3);
-			break;
-
-		case 8:
-			postac.setWiedzaBudowlana(postac.getWiedzaBudowlana() + 3);
-			break;
-
-		}
-
-		// stale dodatki dla postaci
-		postac.setTerzyznaFizyczna(postac.getTerzyznaFizyczna() + 1);
-		postac.setCelnosc(postac.getCelnosc() + 1);
-		postac.setInicjatywa(postac.getInicjatywa() + 1);
-		postac.setTraper(postac.getTraper() + 1);
-		postac.setPlatnerz(postac.getPlatnerz() + 1);
-		postac.setZdrowie(postac.getZdrowie() + 1);
-		postac.setWiedzaCodzienna(postac.getWiedzaCodzienna() + 1);
-		postac.setBudynkiSocjalne(postac.getBudynkiSocjalne() + 1);
-
-		plansza.setVisible(true);
-		setVisible(false);
-
 	}
 
 }

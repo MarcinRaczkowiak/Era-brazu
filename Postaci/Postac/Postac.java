@@ -18,30 +18,37 @@ public class Postac {
 	private int silaCiosu;
 	private int terzyznaFizyczna;
 	private int gurnik;
+
 	private int zwinnosc;
 	private int celnosc;
 	private int unik;
 	private int skradanie;
+
 	private int szybkosc;
 	private int szybkoscCiosu;
 	private int szybkoscObrony;
 	private int inicjatywa;
+
 	private int wiedzaNaukowa;
 	private int anatomia;
 	private int traper;
 	private int zielarz;
+
 	private int znajomoscBroni;
 	private int rozbrojenie;
 	private int zbrojmistsz;
 	private int platnerz;
+
 	private int silyWitalne;
 	private int zdrowie;
 	private int kondycja;
 	private int pojemnoscZoladka;
-	private int ziemiarz;
+
+	private int wiedzaCodzienna;
 	private int gotowanie;
 	private int wetkarstwo;
-	private int wiedzaCodzienna;
+	private int rolnictwo;
+
 	private int wiedzaBudowlana;
 	private int maszynyOblerznicze;
 	private int budynkoObronne;
@@ -104,10 +111,10 @@ public class Postac {
 		this.zdrowie = zdrowie;
 		this.kondycja = kondycja;
 		this.pojemnoscZoladka = pojemnoscZoladka;
-		this.ziemiarz = ziemiarz;
+		this.wiedzaCodzienna = ziemiarz;
 		this.gotowanie = gotowanie;
 		this.wetkarstwo = wetkarstwo;
-		this.wiedzaCodzienna = wiedzaCodzienna;
+		this.rolnictwo = wiedzaCodzienna;
 		this.wiedzaBudowlana = wiedzaBudowlana;
 		this.maszynyOblerznicze = maszynyOblerznicze;
 		this.budynkoObronne = budynkoObronne;
@@ -755,12 +762,12 @@ public class Postac {
 		this.pojemnoscZoladka = pojemnoscZoladka;
 	}
 
-	public synchronized int getZiemiarz() {
-		return ziemiarz;
+	public synchronized int getWiedzaCodzienna() {
+		return wiedzaCodzienna;
 	}
 
-	public synchronized void setZiemiarz(int ziemiarz) {
-		this.ziemiarz = ziemiarz;
+	public synchronized void setWiedzaCodzienna(int ziemiarz) {
+		this.wiedzaCodzienna = ziemiarz;
 	}
 
 	public synchronized int getGotowanie() {
@@ -779,12 +786,12 @@ public class Postac {
 		this.wetkarstwo = wetkarstwo;
 	}
 
-	public synchronized int getWiedzaCodzienna() {
-		return wiedzaCodzienna;
+	public synchronized int getRolnictwo() {
+		return rolnictwo;
 	}
 
-	public synchronized void setWiedzaCodzienna(int rolnictwo) {
-		this.wiedzaCodzienna = rolnictwo;
+	public synchronized void setRolnictwo(int rolnictwo) {
+		this.rolnictwo = rolnictwo;
 	}
 
 	public synchronized int getWiedzaBudowlana() {

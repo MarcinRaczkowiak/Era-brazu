@@ -392,35 +392,35 @@ public class Panel1 extends JPanel {
 			// podstawowe
 
 			((TworzeniePostaci) tworzeniePostaci)
-					.setSila(((TworzeniePostaci) tworzeniePostaci).getSila() + 2);
+					.setSila(((TworzeniePostaci) tworzeniePostaci).getSila() + 4);
 
 			((TworzeniePostaci) tworzeniePostaci)
 					.setZwinnosc(((TworzeniePostaci) tworzeniePostaci)
-							.getZwinnosc() + 2);
+							.getZwinnosc() + 4);
 
 			((TworzeniePostaci) tworzeniePostaci)
 					.setSzybkosc(((TworzeniePostaci) tworzeniePostaci)
-							.getSzybkosc() + 2);
+							.getSzybkosc() + 4);
 
 			((TworzeniePostaci) tworzeniePostaci)
 					.setWiedzaNaukowa(((TworzeniePostaci) tworzeniePostaci)
-							.getWiedzaNaukowa() + 2);
+							.getWiedzaNaukowa() + 4);
 
 			((TworzeniePostaci) tworzeniePostaci)
 					.setZnajomoscBroni(((TworzeniePostaci) tworzeniePostaci)
-							.getZnajomoscBroni() + 2);
+							.getZnajomoscBroni() + 4);
 
 			((TworzeniePostaci) tworzeniePostaci)
 					.setSilyWitalne(((TworzeniePostaci) tworzeniePostaci)
-							.getSilyWitalne() + 2);
+							.getSilyWitalne() + 4);
 
 			((TworzeniePostaci) tworzeniePostaci)
 					.setZiemiarz(((TworzeniePostaci) tworzeniePostaci)
-							.getZiemiarz() + 2);
+							.getZiemiarz() + 4);
 
 			((TworzeniePostaci) tworzeniePostaci)
 					.setWiedzaBudowlana(((TworzeniePostaci) tworzeniePostaci)
-							.getWiedzaBudowlana() + 2);
+							.getWiedzaBudowlana() + 4);
 
 			((TworzeniePostaci) tworzeniePostaci).panel2();
 		}
