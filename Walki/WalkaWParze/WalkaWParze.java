@@ -46,9 +46,10 @@ public class WalkaWParze {
 		int Obrona;
 		Random SObrona = new Random();
 		Obrona = SObrona.nextInt(pretkoscObrony);
+
 		OknoWalki.DopiszTekstWalkiNiezakonczonej("Atakuje "
 				+ bochater.getImie() + "    Broni sie " + bot.getImie());
-		OknoWalki.DopiszTekstWalkiNiezakonczonej("Atak" + Atak + "    Obrona"
+		OknoWalki.DopiszTekstWalkiNiezakonczonej("Atak " + Atak + "    Obrona "
 				+ Obrona);
 		System.out.println("Atak" + Atak + "    Obrona" + Obrona);
 
@@ -81,24 +82,29 @@ public class WalkaWParze {
 		int cios = (bot.getSila() + bot.getSilaCiosu() + bot.getWagaBroni()) / 30;
 		int unik = (bochater.getUnik() + bochater.getZwinnosc());
 
-		if (unik <= 0) {
+		if (unik <= 1) {
 			unik = 0;
 		} else {
-
 			Random SObrona = new Random();
-			unik = SObrona.nextInt(unik) / 3;
+			unik = SObrona.nextInt(unik);
 			cios -= unik;
 		}
-		System.out.println(cios);
+
 		if (cios > 0) {
 
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie() + " uderza "
+					+ bochater.getImie() + " za " + cios);
+
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
+					+ " unika " + unik + " obrarzeñ");
+
 			String item = Item();
-			OknoWalki.DopiszTekstWalkiNiezakonczonej("Kontratak " + cios
-					+ "  unik " + unik + "\n" + "trafiono w " + item);
-			System.out.println("Kontra " + cios + "  Unikniête Obrarzenia "
-					+ unik + "\n" + "trafiono w " + item);
 			Item trafionyItem = bochater.getItem(item);
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
 			CiosKontraItem(bot, trafionyItem, cios, bochater);
+		} else {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
+					+ " zrobi³ pe³en unik");
 		}
 	}
 
@@ -109,27 +115,35 @@ public class WalkaWParze {
 	 * @param celAtaku
 	 */
 	private void Cios(String rodzajAtaku, String celAtaku) {
+
 		int cios = bochater.getSila() + bochater.getSilaCiosu()
 				+ bochater.getWagaBroni() / 10;
-		int unik = (bochater.getUnik() + bochater.getZwinnosc());
-		if (unik <= 0) {
+		int unik = (bot.getUnik() + bot.getZwinnosc());
+
+		if (unik <= 1) {
 			unik = 0;
 		} else {
 			Random SObrona = new Random();
 			unik = SObrona.nextInt(unik);
+			cios -= unik;
 		}
-		cios -= unik;
-		System.out.println(cios);
+
 		if (cios > 0) {
 
-			String item = Item();
-			OknoWalki.DopiszTekstWalkiNiezakonczonej("Udany Atak " + cios
-					+ "  Unikniête Obrarzenia " + unik + "\n" + "trafiono w "
-					+ item);
-			System.out.println("cios " + cios + "  Unikniête Obrarzenia "
-					+ unik + "\n" + "trafiono w " + item);
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
+					+ " uderza " + bot.getImie() + " za " + cios);
+
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie() + " unika "
+					+ unik + " obrarzeñ");
+
+			String item = Item();// gdzie trafia atakuj¹cy
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
+
 			Item trafionyItem = bot.getItem(item);
 			CiosKontraItem(bochater, trafionyItem, cios, bot);
+		} else {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie()
+					+ " zrobi³ pe³en unik");
 		}
 	}
 
@@ -176,20 +190,24 @@ public class WalkaWParze {
 
 	private void CiosKontraItem(Postac Atakujacy, Item trafionyItem, int cios,
 			Postac Obrywa) {
+
 		if (cios <= trafionyItem.getOdpornoscNaCiecie()) {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Cios w przedmiot");
 			CiosWItem(trafionyItem, cios, Obrywa);
+
 		} else if (0 == trafionyItem.getOdpornoscNaCiecie()) {
 			Obrywa.setHp(Obrywa.getHp() - cios);// cios tylko w bpchatera
-			OknoWalki.DopiszTekstWalkiNiezakonczonej("cios omija przedmiot");
-			System.out.println("cios omija przedmiot");
-		} else {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Cios omija przedmiot");
 
+		} else {
+			OknoWalki
+					.DopiszTekstWalkiNiezakonczonej("Cios trwfi³ w przedmiot i w "
+							+ Obrywa.getImie());
 			Obrywa.setHp(Obrywa.getHp() - cios
 					+ trafionyItem.getOdpornoscNaCiecie());
 			CiosWItem(trafionyItem, cios - trafionyItem.getOdpornoscNaCiecie(),
 					Obrywa);
-			OknoWalki.DopiszTekstWalkiNiezakonczonej("cios omija przedmiot");
-			System.out.println("Cios omija przedmiot");
+
 		}
 
 	}
@@ -201,13 +219,16 @@ public class WalkaWParze {
 		if (cios <= trafionyItem.getHpPrzedmiotu()) {
 			trafionyItem.setHpPrzedmiotu(trafionyItem.getHpPrzedmiotu() - cios);
 			OknoWalki
-					.DopiszTekstWalkiNiezakonczonej("przedmiot pochlona obrarzenia");
-			System.out.println("trafiono przedmiot "
-					+ trafionyItem.getHpPrzedmiotu());
+					.DopiszTekstWalkiNiezakonczonej("Przedmiot poch³on¹ ca³e obra¿enia ");
+
 		} else {
-			Obrywa.setHp(Obrywa.getHp() - cios);
-			OknoWalki.DopiszTekstWalkiNiezakonczonej("cios omija przedmiot");
-			System.out.println("Cios omija przedmiot");
+			Obrywa.setHp(Obrywa.getHp()
+					- (cios - trafionyItem.getHpPrzedmiotu()));
+			trafionyItem.setHpPrzedmiotu(0);
+
+			OknoWalki
+					.DopiszTekstWalkiNiezakonczonej("Przedmiot jest zbyt zniszczony by odebraæ obrarzenia");
+
 		}
 	}
 
