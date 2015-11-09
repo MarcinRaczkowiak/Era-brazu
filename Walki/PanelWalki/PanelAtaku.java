@@ -66,10 +66,11 @@ public class PanelAtaku extends JFrame implements ActionListener {
 
 		wybierzCelAtaku = new JComboBox<String>();
 		wybierzCelAtaku.setBounds(10, 220, 100, 20);
-		wybierzCelAtaku.addItem("Gowa");
-		wybierzCelAtaku.addItem("Piers");
+		wybierzCelAtaku.addItem("Losowo");
+		wybierzCelAtaku.addItem("G³owa");
+		wybierzCelAtaku.addItem("Tors");
 		wybierzCelAtaku.addItem("Nogi");
-		wybierzCelAtaku.addItem("Rece");
+		wybierzCelAtaku.addItem("Rêce");
 		wybierzCelAtaku.addItem("Stopy");
 		add(wybierzCelAtaku);
 

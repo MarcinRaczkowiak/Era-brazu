@@ -98,7 +98,7 @@ public class WalkaWParze {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
 					+ " unika " + unik + " obrarzeñ");
 
-			String item = Item();
+			String item = Item(celAtaku);
 			Item trafionyItem = bochater.getItem(item);
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
 			CiosKontraItem(bot, trafionyItem, cios, bochater);
@@ -136,7 +136,7 @@ public class WalkaWParze {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie() + " unika "
 					+ unik + " obrarzeñ");
 
-			String item = Item();// gdzie trafia atakuj¹cy
+			String item = Item(celAtaku);// gdzie trafia atakuj¹cy
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
 
 			Item trafionyItem = bot.getItem(item);
@@ -147,43 +147,59 @@ public class WalkaWParze {
 		}
 	}
 
-	private String Item() {
-		Random gg = new Random();
-		int item = gg.nextInt(6) + 1;
+	private String Item(String celAtaku) {
 		String nItem = "";
-		switch (item) {
-		case 1:
-			nItem = "zbroja";
-			System.out.println("zbroja");
+		if (celAtaku.equals("Losowo")) {
+			Random gg = new Random();
+			int item = gg.nextInt(6) + 1;
 
-			break;
+			switch (item) {
+			case 1:
+				nItem = "zbroja";
+				System.out.println("zbroja");
 
-		case 2:
-			nItem = "obuwie";
-			System.out.println("obuwie");
+				break;
 
-			break;
-		case 3:
-			nItem = "spodnie";
-			System.out.println("spodnie");
-			break;
+			case 2:
+				nItem = "obuwie";
+				System.out.println("obuwie");
 
-		case 4:
-			nItem = "rekawice";
-			System.out.println("rekawice");
-			break;
-		case 5:
-			nItem = "czapka";
-			System.out.println("czapka");
-			break;
+				break;
+			case 3:
+				nItem = "spodnie";
+				System.out.println("spodnie");
+				break;
 
-		case 6:
-			nItem = "zbroja";
-			System.out.println(" zbroja");
-			break;
+			case 4:
+				nItem = "rekawice";
+				System.out.println("rekawice");
+				break;
+			case 5:
+				nItem = "czapka";
+				System.out.println("czapka");
+				break;
 
-		default:
+			case 6:
+				nItem = "zbroja";
+				System.out.println(" zbroja");
+				break;
+
+			default:
+			}
 		}
+
+		if (celAtaku.equals("G³owa")) {
+			nItem = "czapka";
+		} else if (celAtaku.equals("Tors")) {
+			nItem = "zbroja";
+		} else if (celAtaku.equals("Nogi")) {
+			nItem = "spodnie";
+		} else if (celAtaku.equals("Rêce")) {
+			nItem = "rekawice";
+		} else if (celAtaku.equals("Stopy")) {
+			nItem = "obuwie";
+		}
+
 		return nItem;
 
 	}
