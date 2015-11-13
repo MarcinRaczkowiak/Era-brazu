@@ -115,10 +115,12 @@ public class SterowanieWalka {
 				int zwyciesca;
 
 				if (postac2.getHp() > 0) {
-					zwyciesca = 2;
+					zwyciesca = 2;// bag
+					((Pvp) oknoStartowe).WynikWalki(2);
 
 				} else {
 					zwyciesca = 1;
+					((Pvp) oknoStartowe).WynikWalki(1);
 
 				}
 				if (Integer.parseInt(color) != 1) {
@@ -129,8 +131,6 @@ public class SterowanieWalka {
 
 						((Pvp) oknoStartowe).WygraneGracz1();
 					}
-				} else {
-					((Pvp) oknoStartowe).WynikWalki(zwyciesca);
 				}
 
 				oknoStartowe.setVisible(true);
