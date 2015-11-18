@@ -26,16 +26,14 @@ public class WalkaWParze {
 	 * wyliczenia czy atak sie uda wraz z kontynuacj¹ ca³ego ataku
 	 */
 	public void Atak(String rodzajAtaku, String celAtaku) {
-		int pretkoscAtaku = (bochater.getSzybkosc() + bochater
-				.getSzybkoscCiosu())
-				* 5
-				+ bochater.getDlugoscBroni()
+		int pretkoscAtaku = ((bochater.getSzybkosc() + bochater
+				.getSzybkoscCiosu()) * 5 + bochater.getDlugoscBroni())
 				- bochater.getDyskonfort() + 25;
 		if (pretkoscAtaku < 5)
 			pretkoscAtaku = 5;
 
-		int pretkoscObrony = (bot.getSzybkosc() + bot.getSzybkoscObrony() * 5
-				+ bochater.getDlugoscBroni() - bot.getDyskonfort());
+		int pretkoscObrony = ((bot.getSzybkosc() + bot.getSzybkoscObrony() * 5 + bochater
+				.getDlugoscBroni()) - bot.getDyskonfort());
 		if (pretkoscObrony < 5)
 			pretkoscObrony = 5;
 
@@ -98,7 +96,7 @@ public class WalkaWParze {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
 					+ " unika " + unik + " obrarzeñ");
 
-			String item = Item(celAtaku);
+			String item = Item("losowo");
 			Item trafionyItem = bochater.getItem(item);
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
 			CiosKontraItem(bot, trafionyItem, cios, bochater);
@@ -149,20 +147,50 @@ public class WalkaWParze {
 
 	private String Item(String celAtaku) {
 		String nItem = "";
+
+		if (celAtaku.equals("G³owa")) {
+			if (CzyTradiWItem()) {
+				nItem = "czapka";
+			} else {
+				celAtaku = "Losowo";
+			}
+		} else if (celAtaku.equals("Tors")) {
+			if (CzyTradiWItem()) {
+				nItem = "zbroja";
+			} else {
+				celAtaku = "Losowo";
+			}
+		} else if (celAtaku.equals("Nogi")) {
+			if (CzyTradiWItem()) {
+				nItem = "spodnie";
+			} else {
+				celAtaku = "Losowo";
+			}
+		} else if (celAtaku.equals("Rêce")) {
+			if (CzyTradiWItem()) {
+				nItem = "rekawice";
+			} else {
+				celAtaku = "Losowo";
+			}
+		} else if (celAtaku.equals("Stopy")) {
+			if (CzyTradiWItem()) {
+				nItem = "obuwie";
+			} else {
+				celAtaku = "Losowo";
+			}
+		}
 		if (celAtaku.equals("Losowo")) {
 			Random gg = new Random();
 			int item = gg.nextInt(6) + 1;
-
+			System.out.println("Losowo");
 			switch (item) {
 			case 1:
 				nItem = "zbroja";
-				System.out.println("zbroja");
 
 				break;
 
 			case 2:
 				nItem = "obuwie";
-				System.out.println("obuwie");
 
 				break;
 			case 3:
@@ -188,20 +216,21 @@ public class WalkaWParze {
 			}
 		}
 
-		if (celAtaku.equals("G³owa")) {
-			nItem = "czapka";
-		} else if (celAtaku.equals("Tors")) {
-			nItem = "zbroja";
-		} else if (celAtaku.equals("Nogi")) {
-			nItem = "spodnie";
-		} else if (celAtaku.equals("Rêce")) {
-			nItem = "rekawice";
-		} else if (celAtaku.equals("Stopy")) {
-			nItem = "obuwie";
-		}
-
 		return nItem;
 
+	}
+
+	private boolean CzyTradiWItem() {
+		int trafienie = (bochater.getCelnosc() + bochater.getZwinnosc()) * 5;
+		int chybienie = (bochater.getLevel() + 3) * 11;
+
+		Random SAtak = new Random();
+		trafienie = SAtak.nextInt(trafienie) + 1;
+		chybienie = SAtak.nextInt(chybienie) + 1;
+
+		if (trafienie > chybienie)
+			return true;
+		return false;
 	}
 
 	private void CiosKontraItem(Postac Atakujacy, Item trafionyItem, int cios,

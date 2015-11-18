@@ -115,20 +115,18 @@ public class SterowanieWalka {
 				int zwyciesca;
 
 				if (postac2.getHp() > 0) {
-					zwyciesca = 2;// bag
-					((Pvp) oknoStartowe).WynikWalki(2);
+					zwyciesca = 2;
 
 				} else {
 					zwyciesca = 1;
-					((Pvp) oknoStartowe).WynikWalki(1);
 
 				}
 				if (Integer.parseInt(color) != 1) {
 					if (postac2.getHp() > 0) {
-
+						((Pvp) oknoStartowe).WynikWalki(zwyciesca);
 						((Pvp) oknoStartowe).WygraneGracz2();
 					} else {
-
+						((Pvp) oknoStartowe).WynikWalki(zwyciesca);
 						((Pvp) oknoStartowe).WygraneGracz1();
 					}
 				}

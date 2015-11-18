@@ -208,6 +208,7 @@ public class LewelUp extends JFrame implements ActionListener {
 		postac.setZdrowie(postac.getZdrowie() + 1);
 		postac.setRolnictwo(postac.getRolnictwo() + 1);
 		postac.setBudynkiSocjalne(postac.getBudynkiSocjalne() + 1);
+		postac.setLevel(postac.getLevel() + 1);
 
 		plansza.setVisible(true);
 		setVisible(false);
