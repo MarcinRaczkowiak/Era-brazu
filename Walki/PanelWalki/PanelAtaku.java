@@ -21,7 +21,9 @@ public class PanelAtaku extends JFrame implements ActionListener {
 	private JLabel hp = new JLabel("HP: ");
 	private JLabel iloscHp;
 	private JButton atak;
+	private JButton przyjrzyjSie;
 	private JComboBox<String> wybierzRodzajAtaku;
+	private JComboBox<String> wybierzCoObejrzec;
 	private JComboBox<String> wybierzCelAtaku;
 	private WalkaWParze walka;
 	private WalkaWParze walkaBot;
@@ -67,35 +69,59 @@ public class PanelAtaku extends JFrame implements ActionListener {
 		wybierzCelAtaku = new JComboBox<String>();
 		wybierzCelAtaku.setBounds(10, 220, 100, 20);
 		wybierzCelAtaku.addItem("Losowo");
-		wybierzCelAtaku.addItem("G³owa");
-		wybierzCelAtaku.addItem("Tors");
-		wybierzCelAtaku.addItem("Nogi");
-		wybierzCelAtaku.addItem("Rêce");
-		wybierzCelAtaku.addItem("Stopy");
+		Wypelnienie(wybierzCelAtaku);
 		add(wybierzCelAtaku);
+		wybierzCoObejrzec = new JComboBox<String>();
+		wybierzCoObejrzec.setBounds(230, 100, 100, 20);
+		Wypelnienie(wybierzCoObejrzec);
+		wybierzCoObejrzec.addItem("Bron");
+
+		add(wybierzCoObejrzec);
 
 		atak = new JButton("Walcz");
 		atak.setBounds(10, 100, 100, 20);
 		atak.addActionListener(this);
+		przyjrzyjSie = new JButton("Obejrzyj");
+		przyjrzyjSie.setBounds(120, 100, 100, 20);
+		przyjrzyjSie.addActionListener(this);
+		add(przyjrzyjSie);
 		add(atak);
 		add(imie);
 		add(iloscHp);
 		add(hp);
 	}
 
-	public void Guzik(boolean aktywnoscGuzika) {
-		atak.setEnabled(aktywnoscGuzika);
+	private void Wypelnienie(JComboBox<String> wypelnienie) {
+
+		wypelnienie.addItem("G³owa");
+		wypelnienie.addItem("Tors");
+		wypelnienie.addItem("Nogi");
+		wypelnienie.addItem("Rêce");
+		wypelnienie.addItem("Stopy");
 	}
 
-	public void actionPerformed(ActionEvent arg0) {
+	public void Guzik(boolean aktywnoscGuzika) {
 
-		sterowanieWalka.Atakuj¹cy1();
-		String rodzajAtaku = wybierzRodzajAtaku.getSelectedItem().toString();
-		String celAtaku = wybierzCelAtaku.getSelectedItem().toString();
-		walka.Atak(rodzajAtaku, celAtaku);
-		iloscHp.setText(String.valueOf(postacBochater.getHp()));
-		if (bot.getBot()) {
-			walkaBot.Atak(rodzajAtaku, celAtaku);
+		atak.setEnabled(aktywnoscGuzika);
+		przyjrzyjSie.setEnabled(aktywnoscGuzika);
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		Object akcja = e.getSource();
+		if (akcja == atak) {
+			sterowanieWalka.Atakuj¹cy1();
+			String rodzajAtaku = wybierzRodzajAtaku.getSelectedItem()
+					.toString();
+			String celAtaku = wybierzCelAtaku.getSelectedItem().toString();
+			walka.Atak(rodzajAtaku, celAtaku);
+		} else {
+			sterowanieWalka.Atakuj¹cy1();
+
+			String celPatrzenia = wybierzCoObejrzec.getSelectedItem()
+					.toString();
+
+			walka.ZobaczNa(celPatrzenia);
 		}
 
 		// if (postacBochater.getHp() <= 0) {

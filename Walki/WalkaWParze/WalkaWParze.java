@@ -77,8 +77,8 @@ public class WalkaWParze {
 	 * @param rodzajAtaku
 	 */
 	private void KontrAtak(String rodzajAtaku, String celAtaku) {
-		int cios = (bot.getSila() + bot.getSilaCiosu() + bot.getWagaBroni()) / 30;
-		int unik = (bochater.getUnik() + bochater.getZwinnosc());
+		int cios = (bot.getSila() + bot.getSilaCiosu() + bot.getWagaBroni()) / 10;
+		int unik = (bochater.getUnik() + bochater.getZwinnosc() / 2);
 
 		if (unik <= 1) {
 			unik = 0;
@@ -96,7 +96,7 @@ public class WalkaWParze {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
 					+ " unika " + unik + " obrarzeñ");
 
-			String item = Item("losowo");
+			String item = Item("Losowo");
 			Item trafionyItem = bochater.getItem(item);
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
 			CiosKontraItem(bot, trafionyItem, cios, bochater);
@@ -115,7 +115,7 @@ public class WalkaWParze {
 	private void Cios(String rodzajAtaku, String celAtaku) {
 
 		int cios = bochater.getSila() + bochater.getSilaCiosu()
-				+ bochater.getWagaBroni() / 10;
+				+ bochater.getWagaBroni() / 5;
 		int unik = (bot.getUnik() + bot.getZwinnosc());
 
 		if (unik <= 1) {
@@ -275,6 +275,42 @@ public class WalkaWParze {
 					.DopiszTekstWalkiNiezakonczonej("Przedmiot jest zbyt zniszczony by odebraæ obrarzenia");
 
 		}
+	}
+
+	public void ZobaczNa(String celPatrzenia) {
+		OknoWalki.DopiszTekstWalkiNiezakonczonej("Patrzysz na " + celPatrzenia);
+
+		if (celPatrzenia.equals("G³owa")) {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getCzapka());
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
+					+ bot.getCzapka());
+		} else if (celPatrzenia.equals("Tors")) {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getZbroja());
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
+					+ bot.getCzapka());
+		} else if (celPatrzenia.equals("Nogi")) {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getSpodnie());
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
+					+ bot.getCzapka());
+		} else if (celPatrzenia.equals("Rêce")) {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getRekawice());
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
+					+ bot.getCzapka());
+		} else if (celPatrzenia.equals("Stopy")) {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getObuwie());
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
+					+ bot.getCzapka());
+		} else if (celPatrzenia.equals("Bron")) {
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getBron());
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
+					+ bot.getCzapka());
+		}
+		// z itemami jest wiele problemuw nie dokonca jest wszystko sprawne
+		OknoWalki.ZakonczTekst();
+	}
+
+	private void patsz() {
+
 	}
 
 }
