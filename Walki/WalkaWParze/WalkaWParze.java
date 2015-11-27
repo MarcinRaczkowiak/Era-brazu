@@ -279,32 +279,41 @@ public class WalkaWParze {
 
 	public void ZobaczNa(String celPatrzenia) {
 		OknoWalki.DopiszTekstWalkiNiezakonczonej("Patrzysz na " + celPatrzenia);
-
+		Item trafionyItem;
 		if (celPatrzenia.equals("G³owa")) {
-			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getCzapka());
+			trafionyItem = bot.getItem("czapka");
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
 					+ bot.getCzapka());
 		} else if (celPatrzenia.equals("Tors")) {
-			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getZbroja());
+			trafionyItem = bot.getItem("zbroja");
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
-					+ bot.getCzapka());
+					+ bot.getZbroja());
 		} else if (celPatrzenia.equals("Nogi")) {
-			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getSpodnie());
+			trafionyItem = bot.getItem("spodnie");
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
-					+ bot.getCzapka());
+					+ bot.getSpodnie());
 		} else if (celPatrzenia.equals("Rêce")) {
-			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getRekawice());
+			trafionyItem = bot.getItem("rekawice");
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
-					+ bot.getCzapka());
-		} else if (celPatrzenia.equals("Stopy")) {
-			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getObuwie());
+					+ bot.getRekawice());
+		} else/* if (celPatrzenia.equals("Stopy")) */{
+			trafionyItem = bot.getItem("obuwie");
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
-					+ bot.getCzapka());
-		} else if (celPatrzenia.equals("Bron")) {
-			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getBron());
-			OknoWalki.DopiszTekstWalkiNiezakonczonej("Przeciwnik nosi "
-					+ bot.getCzapka());
+					+ bot.getObuwie());
 		}
+
+		if (celPatrzenia.equals("Bron")) {
+			trafionyItem = bot.getItem("bron");
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("D³ugoœæ broni "
+					+ Integer.toString(bot.getDlugoscBroni()));
+
+		} else {
+
+			OknoWalki.DopiszTekstWalkiNiezakonczonej("Wytszyma³oœæ przedmiotu "
+					+ trafionyItem.getHpPrzedmiotu());
+
+		}
+
 		// z itemami jest wiele problemuw nie dokonca jest wszystko sprawne
 		OknoWalki.ZakonczTekst();
 	}
