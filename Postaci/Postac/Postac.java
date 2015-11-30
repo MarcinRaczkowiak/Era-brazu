@@ -165,6 +165,11 @@ public class Postac extends BazaDanychPrzedmiotuwIBroni {
 		return to;
 	}
 
+	public BronBaza getBronBazowa() {
+		BronBaza to = zbrojaBron.getBron();
+		return to;
+	}
+
 	public BronBaza setBron() {
 		return BronBazaDanych(bron);
 	}

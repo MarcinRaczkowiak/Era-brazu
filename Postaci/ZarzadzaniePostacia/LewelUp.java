@@ -48,7 +48,7 @@ public class LewelUp extends JFrame implements ActionListener {
 
 		podajbonus2.addItem("silaCiosu");
 		podajbonus2.addItem("terzyznaFizyczna");
-		podajbonus2.addItem("gurnik");
+		podajbonus2.addItem("gornik");
 
 		podajbonus2.addItem("celnosc");
 		podajbonus2.addItem("unik");
@@ -80,7 +80,7 @@ public class LewelUp extends JFrame implements ActionListener {
 
 		podajbonus3.addItem("silaCiosu");
 		podajbonus3.addItem("terzyznaFizyczna");
-		podajbonus3.addItem("gurnik");
+		podajbonus3.addItem("gornik");
 
 		podajbonus3.addItem("celnosc");
 		podajbonus3.addItem("unik");
@@ -147,7 +147,7 @@ public class LewelUp extends JFrame implements ActionListener {
 			((Postac) postac)
 					.setSilyWitalne(((Postac) postac).getSilyWitalne() + 2);
 		} else if (color.equals("wiedza codzienna")) {
-			((Postac) postac).setWiedzaCodzienna(((Postac) postac)
+			postac.setWiedzaCodzienna(((Postac) postac)
 					.getWiedzaCodzienna() + 2);
 		} else {
 			((Postac) postac).setWiedzaBudowlana(((Postac) postac)
@@ -221,7 +221,7 @@ public class LewelUp extends JFrame implements ActionListener {
 		} else if (color.equals("terzyznaFizyczna")) {
 			((Postac) postac).setTerzyznaFizyczna(((Postac) postac)
 					.getTerzyznaFizyczna() + 2);
-		} else if (color.equals("gurnik")) {
+		} else if (color.equals("gornik")) {
 			((Postac) postac).setGurnik(((Postac) postac).getGurnik() + 2);
 		} else if (color.equals("celnosc")) {
 			((Postac) postac).setCelnosc(((Postac) postac).getCelnosc() + 2);

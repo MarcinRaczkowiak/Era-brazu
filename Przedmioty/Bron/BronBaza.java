@@ -27,6 +27,19 @@ public class BronBaza {
 		this.szpikulec = szpikulec;
 	}
 
+	public int getAtak(String jaki) {
+		int to;
+		if (jaki.equals("Ciecie")) {
+			to = ostrosc;
+		} else if (jaki.equals("Pchniecie")) {
+			to = szpikulec;
+		} else {
+			to = obuch;
+		}
+
+		return to;
+	}
+
 	public synchronized int getObuch() {
 		return obuch;
 	}

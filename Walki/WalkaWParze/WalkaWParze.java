@@ -2,6 +2,7 @@ package WalkaWParze;
 
 import java.util.Random;
 
+import Bron.BronBaza;
 import PanelWalki.OknoWalki;
 import Postac.Postac;
 import Wzor.Item;
@@ -77,7 +78,9 @@ public class WalkaWParze {
 	 * @param rodzajAtaku
 	 */
 	private void KontrAtak(String rodzajAtaku, String celAtaku) {
-		int cios = (bot.getSila() + bot.getSilaCiosu() + bot.getWagaBroni()) / 10;
+
+		int cios = (bot.getSila() + bot.getSilaCiosu() + bot.getWagaBroni() + AtakBroni(
+				rodzajAtaku, bot)) / 10;
 		int unik = (bochater.getUnik() + bochater.getZwinnosc() / 2);
 
 		if (unik <= 1) {
@@ -91,10 +94,13 @@ public class WalkaWParze {
 		if (cios > 0) {
 
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie() + " uderza "
-					+ bochater.getImie() + " za " + cios);
+					+ bochater.getImie() + " za " + (cios + unik));
 
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
-					+ " unika " + unik + " obrarzeñ");
+					+ " unika " + unik + " obrarzeñ.");
+
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
+					+ " traci " + cios + " punktów.");
 
 			String item = Item("Losowo");
 			Item trafionyItem = bochater.getItem(item);
@@ -114,8 +120,8 @@ public class WalkaWParze {
 	 */
 	private void Cios(String rodzajAtaku, String celAtaku) {
 
-		int cios = bochater.getSila() + bochater.getSilaCiosu()
-				+ bochater.getWagaBroni() / 5;
+		int cios = (bochater.getSila() + bochater.getSilaCiosu()
+				+ bochater.getWagaBroni() + AtakBroni(rodzajAtaku, bochater)) / 5;
 		int unik = (bot.getUnik() + bot.getZwinnosc());
 
 		if (unik <= 1) {
@@ -129,10 +135,13 @@ public class WalkaWParze {
 		if (cios > 0) {
 
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
-					+ " uderza " + bot.getImie() + " za " + cios);
+					+ " uderza " + bot.getImie() + " za " + (cios + unik));
 
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie() + " unika "
-					+ unik + " obrarzeñ");
+					+ unik + " obrarzeñ.");
+
+			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie() + " traci "
+					+ cios + " punktów.");
 
 			String item = Item(celAtaku);// gdzie trafia atakuj¹cy
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
@@ -143,6 +152,14 @@ public class WalkaWParze {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie()
 					+ " zrobi³ pe³en unik");
 		}
+	}
+
+	private int AtakBroni(String rodzajAtaku, Postac atakujacy) {
+		BronBaza bronBazowa = atakujacy.getBronBazowa();
+
+		int atak = bronBazowa.getAtak(rodzajAtaku);
+
+		return atak;
 	}
 
 	private String Item(String celAtaku) {
