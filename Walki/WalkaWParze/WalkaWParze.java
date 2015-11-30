@@ -105,7 +105,7 @@ public class WalkaWParze {
 			String item = Item("Losowo");
 			Item trafionyItem = bochater.getItem(item);
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
-			CiosKontraItem(bot, trafionyItem, cios, bochater);
+			CiosKontraItem(bot, trafionyItem, rodzajAtaku, cios, bochater);
 		} else {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bochater.getImie()
 					+ " zrobi³ pe³en unik");
@@ -147,7 +147,7 @@ public class WalkaWParze {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("trafiono w " + item);
 
 			Item trafionyItem = bot.getItem(item);
-			CiosKontraItem(bochater, trafionyItem, cios, bot);
+			CiosKontraItem(bochater, trafionyItem, rodzajAtaku, cios, bot);
 		} else {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej(bot.getImie()
 					+ " zrobi³ pe³en unik");
@@ -239,7 +239,7 @@ public class WalkaWParze {
 
 	private boolean CzyTradiWItem() {
 		int trafienie = (bochater.getCelnosc() + bochater.getZwinnosc()) * 5;
-		int chybienie = (bochater.getLevel() + 3) * 11;
+		int chybienie = (bochater.getLevel() + 3) * 9;
 
 		Random SAtak = new Random();
 		trafienie = SAtak.nextInt(trafienie) + 1;
@@ -250,14 +250,26 @@ public class WalkaWParze {
 		return false;
 	}
 
-	private void CiosKontraItem(Postac Atakujacy, Item trafionyItem, int cios,
-			Postac Obrywa) {
+	private void CiosKontraItem(Postac Atakujacy, Item trafionyItem,
+			String rodzajAtaku, int cios, Postac Obrywa) {
+		int odpornosc = 0;
+		if (rodzajAtaku.equals("Ciecie")) {
+			odpornosc = trafionyItem.getOdpornoscNaCiecie();
+		} else if (rodzajAtaku.equals("Pchniecie")) {
+			odpornosc = trafionyItem.getOdpornoscNaKucie();
+		} else {
+			odpornosc = trafionyItem.getOdpornoscNaObuch();
+		}
+		CiosKontraItemCD(trafionyItem, cios, Obrywa, odpornosc);
+	}
 
-		if (cios <= trafionyItem.getOdpornoscNaCiecie()) {
+	private void CiosKontraItemCD(Item trafionyItem, int cios, Postac Obrywa,
+			int odpornosc) {
+		if (cios <= odpornosc) {
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("Cios w przedmiot");
 			CiosWItem(trafionyItem, cios, Obrywa);
 
-		} else if (0 == trafionyItem.getOdpornoscNaCiecie()) {
+		} else if (0 == odpornosc) {
 			Obrywa.setHp(Obrywa.getHp() - cios);// cios tylko w bpchatera
 			OknoWalki.DopiszTekstWalkiNiezakonczonej("Cios omija przedmiot");
 
@@ -265,19 +277,17 @@ public class WalkaWParze {
 			OknoWalki
 					.DopiszTekstWalkiNiezakonczonej("Cios trwfi³ w przedmiot i w "
 							+ Obrywa.getImie());
-			Obrywa.setHp(Obrywa.getHp() - cios
-					+ trafionyItem.getOdpornoscNaCiecie());
-			CiosWItem(trafionyItem, cios - trafionyItem.getOdpornoscNaCiecie(),
-					Obrywa);
+			Obrywa.setHp(Obrywa.getHp() - cios + odpornosc);
+			CiosWItem(trafionyItem, cios - odpornosc, Obrywa);
 
 		}
-
 	}
 
 	/**
 	 * cios w przedmiot z pelnym pochlonieciem jego sily
 	 */
 	private void CiosWItem(Item trafionyItem, int cios, Postac Obrywa) {
+
 		if (cios <= trafionyItem.getHpPrzedmiotu()) {
 			trafionyItem.setHpPrzedmiotu(trafionyItem.getHpPrzedmiotu() - cios);
 			OknoWalki
@@ -333,10 +343,6 @@ public class WalkaWParze {
 
 		// z itemami jest wiele problemuw nie dokonca jest wszystko sprawne
 		OknoWalki.ZakonczTekst();
-	}
-
-	private void patsz() {
-
 	}
 
 }
